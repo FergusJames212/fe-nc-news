@@ -1,16 +1,45 @@
 .App {
-  text-align: center;
+  background-color: #f2f1f2;
+  margin-left: 3rem;
+  margin-right: 3rem; 
+  color: #212550;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
+  text-align: left;
+  background-color: #212550;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: 2rem;
+  padding: 1.3rem;
+  color: #f2f1f2;
+}
+
+.image {
+  max-width: 300px; 
+  border-radius: 8px;
+  box-shadow: 10px 10px 5px #41505a;
+}
+
+@media only screen and (min-width: 600px) {
+  .article-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+  }
+  .article-card {
+    color: black;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background: #81a1b7;
+    padding: 1.5rem;
+    border-radius: 15px;
+  }
 }
 
 /* .App-logo {
