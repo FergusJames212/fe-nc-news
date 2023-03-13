@@ -5,8 +5,9 @@ const news = axios.create({ baseURL: "https://fergus-news.onrender.com/" },{
     _limit: 10
    }});
 
-export const fetchArticles = () => {
+export const fetchArticles = ({ setIsLoading, setIsError }) => {
   return news.get("/api/articles").then((response) => {
+    setIsLoading(false);
     return response.data.articles;
   });
 };
