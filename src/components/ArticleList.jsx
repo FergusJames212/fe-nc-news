@@ -4,26 +4,16 @@ import { fetchArticles } from "../utils/api.js";
 const ArticleList = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
-    fetchArticles({ setIsLoading, setIsError })
-    .then((response) => {
+    fetchArticles({ setIsLoading }).then((response) => {
       setArticles(response);
       console.log(articles, "<< articles");
-    })
-    .catch((err) => {
-        setIsLoading(false);
-        setIsError(true);
-      });
+    });
   }, []);
 
   if (isLoading) {
     return <h3>Loading articles...</h3>;
-  }
-
-  if (isError) {
-    return <h3> error!!</h3>;
   }
 
   return (
