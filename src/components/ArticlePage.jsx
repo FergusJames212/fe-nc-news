@@ -1,31 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { fetchArticle } from "../utils/api";
-import { useParams } from "react-router-dom";
-import ArticleCard from "./ArticleCard";
+import SingleArticle from "./SingleArticle";
+import CommentList from "./CommentList";
 
 const ArticlePage = () => {
-  const [article, setArticle] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const { article_id } = useParams();
-
-  useEffect(() => {
-    fetchArticle({ setIsLoading, article_id }).then((response) => {
-      setArticle(response);
-    });
-  }, []);
-
-  if (isLoading) {
-    return <h3>Loading article...</h3>;
-  }
-
   return (
-    <div className="article-page">
-        {ArticleCard(article)}
-        <p>{article.body}</p>
-        <h5>date posted: {article.created_at}</h5>
+    <div>
+      <SingleArticle />
+      <CommentList />
     </div>
-
-  ) 
+  );
 };
 
 export default ArticlePage;
