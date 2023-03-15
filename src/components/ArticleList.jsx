@@ -7,7 +7,8 @@ const ArticleList = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetchArticles({ setIsLoading }).then((response) => {
+    fetchArticles().then((response) => {
+      setIsLoading(false);
       setArticles(response);
     });
   }, []);
@@ -21,7 +22,7 @@ const ArticleList = () => {
       <h2>Current list of articles</h2>
       <ul className="article-list">
         {articles.map((article) => {
-          return (ArticleCard(article));
+          return <ArticleCard article={article} setArticles={setArticles} key={article.article_id}/>;
         })}
       </ul>
     </div>
