@@ -24,3 +24,12 @@ export const patchArticleVotes = (article_id) => {
       return data.article;
     });
 };
+
+export const fetchComments = ({ setIsLoading, article_id }) => {
+  return news.get(`/api/articles/${article_id}/comments`).then((response) => {
+    setIsLoading(false);
+    return response.data.comments;
+  });
+};
+
+

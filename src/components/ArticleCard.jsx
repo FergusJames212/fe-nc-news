@@ -16,8 +16,9 @@ const ArticleCard = ({ article, setArticles }) => {
   };
 
   return (
-    <li key={article.article_id} className="article-card">
-      <Link to={`article/${article.article_id}`}>
+
+    <Link to={`/article/${article.article_id}`}>
+      <li key={article.article_id} className="article-card">
         <h3>{article.title}</h3>
         <h4>posted by: {article.author}</h4>
       </Link>
