@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { fetchComments } from "../utils/api";
 import { useParams } from "react-router-dom";
-import CommentCard from "./CommentCard"; 
+import CommentCard from "./CommentCard";
 
 const CommentList = () => {
   const [comments, setComments] = useState([]);
@@ -21,9 +21,15 @@ const CommentList = () => {
   return (
     <div>
       <h2>Comments</h2>
-      <ul className="comment-list">{comments.map((comment) => {
-       return (CommentCard(comment));
-      })}</ul>
+      <ul className="comment-list">
+        {comments ? (
+          comments.map((comment) => {
+            return CommentCard(comment);
+          })
+        ) : (
+          <p>there are no comments here...</p>
+        )}
+      </ul>
     </div>
   );
 };
