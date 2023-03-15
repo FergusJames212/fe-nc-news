@@ -22,7 +22,7 @@ const ArticleList = () => {
       <h2>Current list of articles</h2>
       <ul className="article-list">
         {articles.map((article) => {
-          return <ArticleCard article={article} setArticles={setArticles} key={article.article_id}/>;
+          return <ArticleCard article={article} key={article.article_id}/>;
         })}
       </ul>
     </div>

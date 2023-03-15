@@ -9,7 +9,8 @@ const SingleArticle = () => {
   const { article_id } = useParams();
 
   useEffect(() => {
-    fetchArticle({ setIsLoading, article_id }).then((response) => {
+    fetchArticle( article_id ).then((response) => {
+      setIsLoading(false);
       setArticle(response);
     });
   }, []);
@@ -20,7 +21,7 @@ const SingleArticle = () => {
 
   return (
     <div className="article-page">
-      {ArticleCard(article)}
+      <ArticleCard article={article}/>  
       <p>{article.body}</p>
       <h5>date posted: {article.created_at}</h5>
     </div>
