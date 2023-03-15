@@ -15,3 +15,11 @@ export const fetchArticle = ({ setIsLoading, article_id }) => {
     return response.data.article;
   });
 };
+
+export const fetchComments = ({ setIsLoading, article_id }) => {
+  return news.get(`/api/articles/${article_id}/comments`).then((response) => {
+    setIsLoading(false);
+    return response.data.comments;
+  });
+};
+
