@@ -31,4 +31,12 @@ export const fetchComments = ({ setIsLoading, article_id }) => {
   });
 };
 
-
+export const postComment = ( article_id, newComment ) => {
+  console.log(article_id, "<< article_id")
+  console.log(newComment, "newComment")
+  return news
+    .post(`/api/articles/${article_id}/comments`, newComment)
+    .then(({data}) => {
+      return data.comment;
+    });
+};
