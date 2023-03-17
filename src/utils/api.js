@@ -8,11 +8,10 @@ export const fetchArticles = (topic) => {
       return response.data.articles;
     });
   } else {
-    return news.get(`/api/articles`, {params: topic}).then((response) => {
+    return news.get(`/api/articles`, { params: topic }).then((response) => {
       return response.data.articles;
     });
   }
-
 };
 
 export const fetchArticle = (article_id) => {
@@ -42,13 +41,14 @@ export const fetchTopics = () => {
   return news.get("/api/topics").then((response) => {
     return response.data.topics;
   });
+};
 
-export const postComment = ( article_id, newComment ) => {
-  console.log(article_id, "<< article_id")
-  console.log(newComment, "newComment")
+export const postComment = (article_id, newComment) => {
+  console.log(article_id, "<< article_id");
+  console.log(newComment, "newComment");
   return news
     .post(`/api/articles/${article_id}/comments`, newComment)
-    .then(({data}) => {
+    .then(({ data }) => {
       return data.comment;
     });
 };
