@@ -9,7 +9,9 @@ const TopicFilter = ({ topicList, setTopic }) => {
 
   return (
     <div>
+      <label htmlFor="choose">Please select the topic you wish to view</label>
       <select
+        id="choose"
         value={selectedTopic}
         onChange={(e) => setSelectedTopic(e.target.value)}
       >
