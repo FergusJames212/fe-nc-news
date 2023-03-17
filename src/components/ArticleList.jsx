@@ -2,16 +2,17 @@ import { useState, useEffect } from "react";
 import { fetchArticles } from "../utils/api.js";
 import ArticleCard from "./ArticleCard";
 
-const ArticleList = () => {
+const ArticleList = (topic) => {
+  console.log(topic, "topic")
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetchArticles().then((response) => {
+    fetchArticles(topic).then((response) => {
       setIsLoading(false);
       setArticles(response);
     });
-  }, []);
+  }, [topic]);
 
   if (isLoading) {
     return <h3>Loading articles...</h3>;

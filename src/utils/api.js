@@ -2,10 +2,17 @@ import axios from "axios";
 
 const news = axios.create({ baseURL: "https://fergus-news.onrender.com/" });
 
-export const fetchArticles = () => {
-  return news.get("/api/articles").then((response) => {
-    return response.data.articles;
-  });
+export const fetchArticles = (topic) => {
+  if (topic.topic === "all") {
+    return news.get("/api/articles").then((response) => {
+      return response.data.articles;
+    });
+  } else {
+    return news.get(`/api/articles`, {params: topic}).then((response) => {
+      return response.data.articles;
+    });
+  }
+
 };
 
 export const fetchArticle = (article_id) => {
@@ -31,4 +38,8 @@ export const fetchComments = ({ setIsLoading, article_id }) => {
   });
 };
 
-
+export const fetchTopics = () => {
+  return news.get("/api/topics").then((response) => {
+    return response.data.topics;
+  });
+};
