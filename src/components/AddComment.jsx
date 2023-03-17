@@ -46,7 +46,7 @@ const AddComment = ({ setComments }) => {
         />
         <br />
         <label htmlFor="comment-body">Body:</label>
-        <input
+        <textarea
           type="text"
           id="comment-body"
           value={body}

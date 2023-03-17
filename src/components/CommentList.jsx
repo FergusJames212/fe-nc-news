@@ -1,19 +1,6 @@
-// import { useState, useEffect } from "react";
-// import { fetchComments } from "../utils/api";
-// import { useParams } from "react-router-dom";
 import CommentCard from "./CommentCard";
 
-const CommentList = ({comments, isLoading}) => {
-  // const [comments, setComments] = useState([]);
-  // const [isLoading, setIsLoading] = useState(true);
-  // const { article_id } = useParams();
-
-  // useEffect(() => {
-  //   fetchComments({ setIsLoading, article_id }).then((response) => {
-  //     setComments(response);
-  //   });
-  // }, []);
-
+const CommentList = ({ comments, isLoading }) => {
   if (isLoading) {
     return <h3>Loading comments...</h3>;
   }
